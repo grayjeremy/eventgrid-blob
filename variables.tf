@@ -1,9 +1,23 @@
-variable "raw_string_list" {
-  description = ""
-  default     = ["us-west-1a", "us-west-1b", "us-west-1c"]
+/* need to create a tfvars file */
+
+variable "resourceGroupName" {
+  description = "The name of the resource group"
+  default     = "terraform-event-grid"
 }
 
-variable "permutation_count" {
-  description = ""
-  default     = 1
+variable "defaultLocation" {
+  description = "region name"
+  default     = "eastus"
+}
+
+variable "storageAccountName" {
+  default     = "yomrdj132428"
+}
+
+variable "siteName" {
+  default = "jeremysweetsite45678"
+}
+
+variable "hostingPlanName" {
+  default = "viewerhost"
 }
