@@ -22,7 +22,7 @@ resource "azurerm_storage_container" "sc" {
   container_access_type = "private"
 }
 data "http" "eg-view" {
-  url = "https://raw.githubusercontent.com/grayjeremy/azure-event-grid-viewer/add-output-variable/azuredeploy.json"
+  url = "${var.armTemplateUrl}"
 }
 
 resource "azurerm_template_deployment" "arm" {
