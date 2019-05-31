@@ -1,3 +1,6 @@
+
+![Build status](https://dev.azure.com/grayjeremy/eventgrid-blob/_apis/build/status/grayjeremy.eventgrid-blob)
+
 # My new created Terraform module
 
 This terraform module creates all the resouces described in [Quickstart: Route storage events to web endpoint with Azure CLI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json).  It creates an app service plan, an app service, and a blob storage account.
