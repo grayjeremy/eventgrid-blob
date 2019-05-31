@@ -1,4 +1,7 @@
-output "output_list" {
-  description = "The result of the random_shuffle module"
-  value       = ["${module.random_shuffle.permutation_string_list}"]
+output "appServiceEndpoint" {
+  value = "${azurerm_template_deployment.arm.outputs["appServiceEndpoint"]}"
+}
+
+output storageAccountEndpoint {
+  value = "${azurerm_storage_account.sa.primary_blob_endpoint}"
 }

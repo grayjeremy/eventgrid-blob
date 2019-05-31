@@ -12,7 +12,6 @@ resource "azurerm_storage_account" "sa" {
   account_replication_type = "LRS"
   access_tier              = "Hot"
   account_kind = "BlobStorage"
-  
 }
 
 resource "azurerm_storage_container" "sc" {
@@ -41,12 +40,10 @@ resource "azurerm_template_deployment" "arm" {
 
   }
 
-
 resource "azurerm_eventgrid_event_subscription" "eg" {
   name  = "defaultEventSubscription"
   scope = "${azurerm_storage_account.sa.id}"
   webhook_endpoint {
     url = "${azurerm_template_deployment.arm.outputs["appServiceEndpoint"]}/api/updates"
   }
- 
 }
