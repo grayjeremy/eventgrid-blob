@@ -1,9 +1,3 @@
-/*
-output "appServiceEndpoint" {
-  value = "${lookup(azurerm_template_deployment.arm.outputs, "appServiceEndpoint")}"
-}*/
-
-
 output "appServiceEndpoint" {
   value = "${azurerm_template_deployment.arm.outputs["appServiceEndpoint"]}"
 }

@@ -1,6 +1,5 @@
 module "eventgrid-blob" {
-  source = "github.com/grayjeremy/eventgrid-blob.git"
-
+  source             = "github.com/grayjeremy/terraform-azurerm-eventgrid-blob.git"
   resourceGroupName  = "terraform-event-grid"
   defaultLocation    = "eastus"
   storageAccountName = "yomrdj132428"
