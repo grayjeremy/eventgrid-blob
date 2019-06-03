@@ -1,4 +1,3 @@
-
 resource "azurerm_resource_group" "rg" {
   name     = "${var.resourceGroupName}"
   location = "${var.defaultLocation}"
@@ -20,6 +19,7 @@ resource "azurerm_storage_container" "sc" {
   storage_account_name  = "${azurerm_storage_account.sa.name}"
   container_access_type = "private"
 }
+
 data "http" "eg-view" {
   url = "${var.armTemplateUrl}"
 }
@@ -29,20 +29,21 @@ resource "azurerm_template_deployment" "arm" {
   resource_group_name = "${azurerm_resource_group.rg.name}"
 
   parameters = {
-    "siteName"        = "${var.siteName}",
+    "siteName"        = "${var.siteName}"
     "hostingPlanName" = "${var.hostingPlanName}"
   }
 
   deployment_mode = "Incremental"
-  template_body   = <<DEPLOY
+
+  template_body = <<DEPLOY
     ${data.http.eg-view.body}
   DEPLOY
-
 }
 
 resource "azurerm_eventgrid_event_subscription" "eg" {
-  name = "defaultEventSubscription"
+  name  = "defaultEventSubscription"
   scope = "${azurerm_storage_account.sa.id}"
+
   webhook_endpoint {
     url = "${azurerm_template_deployment.arm.outputs["appServiceEndpoint"]}/api/updates"
   }
