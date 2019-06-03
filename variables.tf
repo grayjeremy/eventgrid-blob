@@ -11,7 +11,7 @@ variable "defaultLocation" {
 }
 
 variable "storageAccountName" {
-  default     = "yomrdj132428"
+  default = "yomrdj132428"
 }
 
 variable "siteName" {

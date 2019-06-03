@@ -11,7 +11,7 @@ resource "azurerm_storage_account" "sa" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
   access_tier              = "Hot"
-  account_kind = "BlobStorage"
+  account_kind             = "BlobStorage"
 }
 
 resource "azurerm_storage_container" "sc" {
@@ -25,23 +25,23 @@ data "http" "eg-view" {
 }
 
 resource "azurerm_template_deployment" "arm" {
-  name                = "acctesttemplate-01" 
+  name                = "acctesttemplate-01"
   resource_group_name = "${azurerm_resource_group.rg.name}"
 
   parameters = {
-    "siteName" = "${var.siteName}",
+    "siteName"        = "${var.siteName}",
     "hostingPlanName" = "${var.hostingPlanName}"
   }
 
   deployment_mode = "Incremental"
-  template_body = <<DEPLOY
+  template_body   = <<DEPLOY
     ${data.http.eg-view.body}
   DEPLOY
 
-  }
+}
 
 resource "azurerm_eventgrid_event_subscription" "eg" {
-  name  = "defaultEventSubscription"
+  name = "defaultEventSubscription"
   scope = "${azurerm_storage_account.sa.id}"
   webhook_endpoint {
     url = "${azurerm_template_deployment.arm.outputs["appServiceEndpoint"]}/api/updates"

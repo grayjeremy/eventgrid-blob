@@ -29,7 +29,7 @@ COPY . /go/src/${MODULE_NAME}
 WORKDIR /go/src/${MODULE_NAME}
 
 # permissions
-RUN chmod -R 777 ./
+RUN chmod -R 755 ./test.sh
 
 # Install dep.
 ENV GOPATH /go
