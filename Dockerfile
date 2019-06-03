@@ -28,6 +28,9 @@ RUN mkdir /go/src/${MODULE_NAME}
 COPY . /go/src/${MODULE_NAME}
 WORKDIR /go/src/${MODULE_NAME}
 
+# permissions
+RUN chmod -R 777 ./
+
 # Install dep.
 ENV GOPATH /go
 ENV PATH /usr/local/go/bin:$GOPATH/bin:$PATH
