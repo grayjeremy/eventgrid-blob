@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"testing"
 	"time"
+
 	"github.com/gruntwork-io/terratest/modules/retry"
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
@@ -13,7 +14,7 @@ func TestTerraformAppService(t *testing.T) {
 	t.Parallel()
 
 	terraformOptions := &terraform.Options{
-		TerraformDir: "../fixture",
+		TerraformDir: "test/fixture",
 
 		Vars: map[string]interface{}{},
 	}
