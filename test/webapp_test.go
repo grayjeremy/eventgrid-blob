@@ -14,7 +14,7 @@ func TestTerraformAppService(t *testing.T) {
 	t.Parallel()
 
 	terraformOptions := &terraform.Options{
-		TerraformDir: "test/fixture",
+		TerraformDir: "fixture",
 
 		Vars: map[string]interface{}{},
 	}
