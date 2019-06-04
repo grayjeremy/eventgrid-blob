@@ -1,5 +1,3 @@
-/* need to create a tfvars file */
-
 variable "resourceGroupName" {
   description = "The name of the resource group"
   default     = "terraform-event-grid"
