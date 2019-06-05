@@ -10,7 +10,7 @@ import (
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
-func TestTerraformAppService(t *testing.T) {
+func TestTerraformAppServiceandStorage(t *testing.T) {
 	t.Parallel()
 
 	terraformOptions := &terraform.Options{
@@ -24,6 +24,7 @@ func TestTerraformAppService(t *testing.T) {
 	terraform.InitAndApply(t, terraformOptions)
 
 	webappURL := terraform.Output(t, terraformOptions, "appServiceEndpoint")
+	storageAccountBaseURL := terraform.Output(t, terraformOptions, "storageAccountEndpoint")
 
 	maxRetries := 15
 	timeBetweenRetries := 5 * time.Second
@@ -36,7 +37,19 @@ func TestTerraformAppService(t *testing.T) {
 		}
 
 		defer response.Body.Close()
-		fmt.Println("HTTP succeeded")
+		fmt.Println("App Service: HTTP succeeded")
+
+		return "", nil
+	})
+
+	retry.DoWithRetry(t, description, maxRetries, timeBetweenRetries, func() (string, error) {
+		response, err := http.Get(storageAccountBaseURL)
+		if err != nil {
+			return "", err
+		}
+
+		defer response.Body.Close()
+		fmt.Println("Storage: HTTP succeeded")
 
 		return "", nil
 	})
