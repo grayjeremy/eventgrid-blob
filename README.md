@@ -1,5 +1,5 @@
 
-![Build status](https://dev.azure.com/grayjeremy/eventgrid-blob/_apis/build/status/grayjeremy.eventgrid-blob)
+[![Build Status](https://dev.azure.com/grayjeremy/terraform-azurerm-eventgrid-blob/_apis/build/status/grayjeremy.eventgrid-blob?branchName=master)](https://dev.azure.com/grayjeremy/terraform-azurerm-eventgrid-blob/_build/latest?definitionId=20&branchName=master)
 
 # My new created Terraform module
 

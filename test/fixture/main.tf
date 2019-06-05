@@ -1,4 +1,4 @@
-module "eventgrid-blob" {
+module "terraform-azurerm-eventgrid-blob" {
   source = "../../"
 
   resourceGroupName  = "terraform-event-grid-test"

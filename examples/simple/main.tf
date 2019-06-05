@@ -1,4 +1,4 @@
-module "eventgrid-blob" {
+module "terraform-azurerm-eventgrid-blob" {
   source             = "github.com/grayjeremy/terraform-azurerm-eventgrid-blob.git"
   resourceGroupName  = "terraform-event-grid"
   defaultLocation    = "eastus"

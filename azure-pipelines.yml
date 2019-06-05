@@ -3,7 +3,7 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-  imageName: 'eventgrid-blob:$(build.buildId)'
+  imageName: 'terraform-azurerm-eventgrid-blob:$(build.buildId)'
 
 steps:
 - script: docker build -f Dockerfile -t $(imageName) .

@@ -1,7 +1,7 @@
 output "appServiceEndpoint" {
-  value = "${module.eventgrid-blob.appServiceEndpoint}"
+  value = "${module.terraform-azurerm-eventgrid-blob.appServiceEndpoint}"
 }
 
 output storageAccountEndpoint {
-  value = "${module.eventgrid-blob.storageAccountEndpoint}"
+  value = "${module.terraform-azurerm-eventgrid-blob.storageAccountEndpoint}"
 }
