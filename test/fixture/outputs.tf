@@ -1,5 +1,5 @@
 output "appServiceEndpoint" {
-  value = "${module.eventgrid-blob.appServiceEndpoint}" 
+  value = "${module.eventgrid-blob.appServiceEndpoint}"
 }
 
 output storageAccountEndpoint {
