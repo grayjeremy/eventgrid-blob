@@ -8,7 +8,7 @@ This terraform module creates all the resouces described in [Quickstart: Route s
 ## Usage
 
 ```
-module "eventgrid-blob" {
+module "terraform-azurerm-eventgrid-blob" {
   source = "github.com/grayjeremy/terraform-azurerm-eventgrid-blob.git"
 
   resourceGroupName = "terraform-event-grid"
